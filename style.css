@@ -1,0 +1,192 @@
+/* style.css */
+
+/* 1. Reset Básico e Variáveis (Opcional, mas recomendado) */
+:root {
+    --cor-principal: #007bff; /* Azul para botões */
+    --cor-sucesso: #28a745; /* Verde para concluído */
+    --cor-bloqueado: #6c757d; /* Cinza para bloqueado */
+    --cor-borda: #dee2e6; /* Cinza claro para bordas */
+    --cor-fundo-claro: #f8f9fa;
+    --cor-texto-principal: #343a40;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto-principal);
+    padding: 20px;
+}
+
+.container-principal {
+    max-width: 900px; /* Limite o contêiner para melhor visualização */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Cabeçalho */
+.cabecalho-modulos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.cabecalho-modulos h1 {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.cabecalho-modulos strong {
+    font-weight: bold;
+}
+
+.btn-acao-principal {
+    background: none;
+    border: none;
+    color: var(--cor-principal);
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* 3. Estilização dos Módulos (Acordeão) */
+
+.modulo-item {
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden; /* Importante para o efeito de expansão */
+}
+
+.modulo-cabecalho {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer; /* Indica que é clicável */
+    background-color: #f0f0f0; /* Fundo leve para o cabeçalho */
+    transition: background-color 0.2s;
+}
+
+/* Estilização para cabeçalhos que não estão bloqueados */
+.modulo-item:not(.bloqueado) .modulo-cabecalho:hover {
+    background-color: #e9ecef;
+}
+
+.titulo-secao {
+    font-weight: bold;
+    flex-grow: 1; /* Ocupa o espaço restante */
+}
+
+.prerequisito {
+    font-size: 0.8em;
+    color: var(--cor-bloqueado);
+    margin-right: 15px;
+}
+
+.btn-completar {
+    background: none;
+    border: 1px solid var(--cor-sucesso);
+    color: var(--cor-sucesso);
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.btn-completar.bloqueado {
+    border-color: var(--cor-bloqueado);
+    color: var(--cor-bloqueado);
+    cursor: not-allowed;
+}
+
+/* 4. Ícones de Status e Expansão */
+
+.icone-status {
+    font-size: 1.2em;
+    margin-right: 15px;
+}
+
+.icone-status.completo {
+    color: var(--cor-sucesso);
+}
+
+.icone-status.bloqueado {
+    color: var(--cor-bloqueado);
+}
+
+.icone-expansao {
+    color: var(--cor-bloqueado);
+    /* Transforma a seta para simular o estado (opcional, via CSS) */
+    transition: transform 0.3s;
+}
+
+.modulo-item.aberto .icone-expansao {
+    transform: rotate(180deg);
+}
+
+/* 5. Conteúdo do Módulo */
+
+.modulo-conteudo {
+    padding: 0 15px;
+    background-color: #fff;
+    /* Simula o Acordeão: visível para 'aberto', escondido para 'fechado' */
+    max-height: 500px; /* Valor grande para mostrar todo o conteúdo */
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.modulo-item.fechado .modulo-conteudo {
+    max-height: 0;
+    padding: 0 15px;
+}
+
+.item-aula {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.item-aula:first-child {
+    border-top: none;
+}
+
+.icone-item {
+    font-size: 1.1em;
+    color: var(--cor-bloqueado);
+    width: 30px; /* Garante que os ícones fiquem alinhados */
+    text-align: center;
+}
+
+.item-aula span:nth-child(2) { /* O nome do item */
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.status-item, .detalhe-item {
+    font-size: 0.8em;
+    color: var(--cor-bloqueado);
+    margin-right: 10px;
+}
+
+/* Círculo para itens pendentes */
+.status-circulo {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--cor-bloqueado);
+    border-radius: 50%;
+    margin-right: 15px;
+}
