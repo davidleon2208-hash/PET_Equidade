@@ -7,6 +7,7 @@
     --color-separator: #dee2e6;  /* Cor da linha de separação */
     --color-link-blue: #007bff;  /* Azul padrão para links (Suporte e ajuda) */
     --color-link-yellow: #fbb040;  /* Amarelo padrão para observações */
+    --max-page-width: 1200px; /* Largura máxima do conteúdo da página */
 }
 
 /* Reset básico e tipografia */
@@ -58,6 +59,8 @@ body {
 /* Área de Conteúdo Principal */
 .main-content {
     width: 100%;
+    max-width: var(--max-page-width);
+    margin: 0 auto; /* centraliza o conteúdo */
     padding: 0 40px 40px 40px;
     flex-grow: 1;
 }
@@ -70,7 +73,7 @@ h1 {
 .secondary-nav {
     padding: 0 auto;
     margin-bottom: 10px;
-    max-width: 900px; /* Limite para alinhar com o card */
+    max-width: var(--max-page-width); /* Limite para alinhar com o card */
 }
 
 .principal-link, .modulo-link {
@@ -123,6 +126,20 @@ h2 {
     overflow: hidden;
 }
 
+/* Container para imagens dos módulos: garante que a imagem se ajuste ao contêiner */
+.imagem_mod {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+.imagem_mod img {
+    width: 100%;       /* ocupa toda a largura disponível do contêiner */
+    height: auto;      /* preserva proporção */
+    display: block;    /* remove espaços abaixo da imagem */
+    max-width: 100%;
+    object-fit: cover; /* cobre o contêiner quando possível */
+}
+
 .image-placeholder {
     /* Placeholder da Imagem */
     background-image: url(Imagem/Banner\ Equidade.png);
@@ -146,7 +163,7 @@ h2 {
 .enrollment-status,
 .page-footer {
     width: 100%;
-    max-width: 900px; /* Consistência com content-card */
+    max-width: var(--max-page-width); /* Consistência com content-card */
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -270,7 +287,7 @@ h2 {
     border: none;
     border-top: 1px solid var(--color-separator);
     margin: 40px auto;
-    max-width: 900px;
+    max-width: var(--max-page-width);
 }
 
 /* Rodapé da Página */
