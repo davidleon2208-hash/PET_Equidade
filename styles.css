@@ -94,7 +94,7 @@ h1 {
     max-width: 100%;
     color: var(--color-primary);
 }
-h5 {
+h3,h5 {
     margin-bottom: 20px;
     color: #ed088f;
 }
@@ -158,6 +158,10 @@ h2 {
 }
 
 /* --- ESTILOS PARA A SEGUNDA IMAGEM (Centralizado) --- */
+.resumo_mod {
+    padding: 15px;
+    text-align: left;
+}
 
 /* Centralização de Conteúdo Secundário */
 .enrollment-status,
